@@ -29,7 +29,7 @@ export function DashboardPageHeaderTitle({
 }: DashboardPageGenericProps) {
   return (
     <span
-      className={cn(['text-sm text-muted-foreground uppercase', className])}
+      className={cn(['text-md text-muted-foreground uppercase', className])}
     >
       {children}
     </span>

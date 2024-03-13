@@ -1,50 +1,51 @@
-'use client'
+"use client";
 
 import {
-    DashboardSidebar,
-    DashboardSidebarFooter,
-    DashboardSidebarHeader,
-    DashboardSidebarMain,
-    DashboardSidebarNav,
-    DashboardSidebarNavHeader,
-    DashboardSidebarNavHeaderTitle,
-    DashboardSidebarNavLink,
-    DashboardSidebarNavMain,
-} from '@/components/dashboard/sidebar'
-import { Logo } from '@/components/logo'
-import { HomeIcon, MixerVerticalIcon } from '@radix-ui/react-icons'
-import { Session } from 'next-auth'
-import { usePathname } from 'next/navigation'
-import { UserDropdown } from './user-dropdown'
+  DashboardSidebar,
+  DashboardSidebarFooter,
+  DashboardSidebarHeader,
+  DashboardSidebarMain,
+  DashboardSidebarNav,
+  DashboardSidebarNavHeader,
+  DashboardSidebarNavHeaderTitle,
+  DashboardSidebarNavLink,
+  DashboardSidebarNavMain,
+} from "@/components/dashboard/sidebar";
+import { Logo } from "@/components/logo";
+import { HomeIcon, MixerVerticalIcon } from "@radix-ui/react-icons";
+import { Session } from "next-auth";
+import { usePathname } from "next/navigation";
+import { UserDropdown } from "./user-dropdown";
 
 type MainSidebarProps = {
-  user: Session['user']
-}
+  user: Session["user"];
+};
 
 export function MainSidebar({ user }: MainSidebarProps) {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   const isActive = (path: string) => {
-    return pathname === path
-  }
+    return pathname === path;
+  };
 
   return (
     <DashboardSidebar>
       <DashboardSidebarHeader>
         <Logo />
+        <h1 className="text-md font-semibold">Rocket Imob</h1>
       </DashboardSidebarHeader>
       <DashboardSidebarMain className="flex flex-col flex-grow">
         <DashboardSidebarNav>
           <DashboardSidebarNavMain>
-            <DashboardSidebarNavLink href="/app" active={isActive('/app')}>
-              <HomeIcon className="w-3 h-3 mr-3" />
+            <DashboardSidebarNavLink href="/app" active={isActive("/app")}>
+              <HomeIcon className="size-4 mr-3" />
               Tarefas
             </DashboardSidebarNavLink>
             <DashboardSidebarNavLink
               href="/app/settings"
-              active={isActive('/app/settings')}
+              active={isActive("/app/settings")}
             >
-              <MixerVerticalIcon className="w-3 h-3 mr-3" />
+              <MixerVerticalIcon className="size-4 mr-3" />
               Configurações
             </DashboardSidebarNavLink>
           </DashboardSidebarNavMain>
@@ -68,5 +69,5 @@ export function MainSidebar({ user }: MainSidebarProps) {
         <UserDropdown user={user} />
       </DashboardSidebarFooter>
     </DashboardSidebar>
-  )
+  );
 }

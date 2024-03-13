@@ -28,7 +28,7 @@ export function DashboardSidebarHeader({
   children,
 }: DashboardSidebarGenericProps) {
   return (
-    <header className={cn(['px-6 py-3 border-b border-border', className])}>
+    <header className={cn(['flex item-center gap-2 px-6 py-3 border-b border-border', className])}>
       {children}
     </header>
   )
@@ -100,7 +100,7 @@ export function DashboardSidebarNavLink({
     <Link
       href={href}
       className={cn([
-        'flex items-center text-xs px-3 py-2 rounded-md',
+        'flex items-center text-md px-3 py-2 rounded-md',
         active && 'bg-secondary',
         className,
       ])}
